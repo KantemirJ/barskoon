@@ -1,0 +1,53 @@
+{%extends 'base.html' %}
+{% load static %}
+
+{%block style%}
+    <link rel="stylesheet" href="{%static 'contacts.css'%}">
+{%endblock%}
+{% block content %}
+<div class="header_emp">
+    <h5>ILETİŞİM</h5>
+</div>
+
+<div class="container">
+  <ul class="responsive-table">
+    <li class="table-header">
+      <div class="col col-1">Departman</div>
+      <div class="col col-2">Departman Başkanı</div>
+      <div class="col col-3">Asistanın Adı</div>
+      <div class="col col-4">Telefon Numarası</div>
+    </li>
+    <li class="table-row">
+      <div class="col col-1" data-label="Departman">BK</div>
+      <div class="col col-2" data-label="Departman Başkanı">ŞEN KANDEMİR</div>
+      <div class="col col-3" data-label="Asistanın Adı">ÇEVİK ERKURAN</div>
+      <div class="col col-4" data-label="Telefon Numarası">0312-98-45-87</div>
+    </li>
+    <li class="table-row">
+      <div class="col col-1" data-label="Departman">HD</div>
+      <div class="col col-2" data-label="Departman Başkanı">TÜTEN ÖZTÜRK</div>
+      <div class="col col-3" data-label="Asistanın Adı">YÜZBAŞIOĞLU VURAL</div>
+      <div class="col col-4" data-label="Telefon Numarası">0312-78-21-01</div>
+    </li>
+    <li class="table-row">
+      <div class="col col-1" data-label="Departman">EFB</div>
+      <div class="col col-2" data-label="Departman Başkanı">YÜCEL SÖNMEZ</div>
+      <div class="col col-3" data-label="Asistanın Adı">ERTEKİN DEDE</div>
+      <div class="col col-4" data-label="Telefon Numarası">0312-45-56-87</div>
+    </li>
+    <li class="table-row">
+      <div class="col col-1" data-label="Departman">SD</div>
+      <div class="col col-2" data-label="Departman Başkanı">UYANIK ASLAN</div>
+      <div class="col col-3" data-label="Asistanın Adı">AKBULUT ORHON</div>
+      <div class="col col-4" data-label="Telefon Numarası">0312-63-47-98</div>
+    </li>
+    <li class="table-row">
+      <div class="col col-1" data-label="Departman">KTHD</div>
+      <div class="col col-2" data-label="Departman Başkanı">UZ YAVUZ</div>
+      <div class="col col-3" data-label="Asistanın Adı">ERDEM KULAÇ</div>
+      <div class="col col-4" data-label="Telefon Numarası">0312-71-67-15</div>
+    </li>
+
+  </ul>
+</div>
+{% endblock %}

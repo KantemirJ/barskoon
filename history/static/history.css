@@ -1,0 +1,18 @@
+.header_emp {
+    width: 1110px;
+    border-bottom: rgba(0, 0, 0, 0.2) solid 1px;
+    margin: 40px auto 30px auto;
+    padding-bottom: 10px;
+}
+
+.header_emp > h5 {
+    color: dimgray;
+}
+
+.history-class {
+    color: dimgray;
+    text-align: justify;
+    max-width: 1110px;
+    max-height: 610px;
+    margin: 40px auto 30px auto;
+}

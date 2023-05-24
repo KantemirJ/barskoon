@@ -1,0 +1,47 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block style%}
+    <link rel="stylesheet" href="{%static 'person/person.css'%}">
+{%endblock%}
+
+{%block content%}
+    <div class="wrapper ad">
+        <img src="{{person.second_picture}}" alt="">
+    </div>
+    <div class="header_empl">
+        <h5>{{ person.name }}</h5>
+    </div>
+    <div class="news_text">
+        <p style="text-align: justify">{{ person.info }}</p>
+    </div>
+    <div class="card-body">
+    {% if user %}
+        <div class="comment-class">
+            <form method="POST" class="header_empl">
+                {% csrf_token %}
+                <div class="add_comment">
+                    <div class="comment_text">
+                        {{form.comment}}
+                    </div>
+                    <div>
+                        <button type="submit" class="button-86">Пикир калтыр</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    {% else %}
+        <div><a href="{% url 'login' %}">Кируу</a></div>
+    {% endif %}
+    <div class="header_empl">
+        <h5>Ой-пикирлер</h5>
+    </div>
+    <div class="">
+        {% for com in comments %}
+        <div class="user-comments">
+            <h6>{{com.username.username}}</h6>
+            <p class="">{{ com.comment }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{%endblock%}

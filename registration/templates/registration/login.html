@@ -1,0 +1,30 @@
+{%load static%}
+
+{%block style%}
+    <link rel="stylesheet" href="{%static 'registration/s.css'%}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+{%endblock%}
+
+{% block content %}
+    {% if form.errors %}
+        <div class="error"><p>Колдонуучу аты же сыр сөз туура эмес</p>
+    {% endif %}
+
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <form method="post">
+        <h3>Кирүү</h3>
+        {% csrf_token %}
+        <label for="username">Kолдонуучу аты</label>
+        <div class="username">{{ form.username }}</div>
+        <label for="password">Сыр сөз</label>
+        <div class="password">{{ form.password }}</div>
+        <div><input class="button" value="Кирүү" type="submit"></div>
+        <div class="reg_user"><a href="{% url 'reg_user' %}">Мучө бол</a></div>
+    </form>
+
+{% endblock %}

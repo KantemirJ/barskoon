@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{%load static%}
+
+{%block style%}
+    <link rel="stylesheet" href="{%static 'employee.css'%}">
+{%endblock%}
+
+{% block content %}
+
+<div class="header_empl">
+    <h5>Кызматкерлер</h5>
+</div>
+<div class="employee_class">
+    {% for employee in employees %}
+        <div class="column">
+            <img src={{ employee.picture_url }} style="width:100%">
+            <div class="card">
+                <div class="container">
+                    <h2>
+                        <a href="{% url 'person_page' person_id=employee.id%}">{{ employee.name }}</a>
+                    </h2>
+                    <p class="title">{{ employee.job_position }}</p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+</div>
+{% endblock %}

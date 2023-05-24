@@ -1,0 +1,23 @@
+{%extends 'base.html' %}
+{% load static %}
+
+{%block style%}
+    <link rel="stylesheet" href="{% static 'history.css' %}">
+{%endblock%}
+
+{%block content %}
+    <div class="header_emp">
+        <h5>Барскоон шаарынын тарыхы</h5>
+    </div>
+        {% for history in histories %}
+            <div class="history-class">
+                    <h4 class="">
+                        {{ history.header }}
+                    </h4>
+                    <p class="">
+                        {{ history.info }}
+                    </p>
+                </div>
+            </div>
+        {% endfor %}
+{%endblock %}

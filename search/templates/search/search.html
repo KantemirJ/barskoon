@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <div class="container" style="background-color: #ffbd69;width: 60%;">
+        <div style="text-align: center;font-size: 30px;color: #ff6363;"><em>
+            Издоонун жыйынтыктары:</em></div>
+        <div style="display: table;">
+            {% for ad in ads %}
+                <div style="height: 335px;padding: 5px;">
+                    <div style="width: 200px;text-align: center;">
+                        <a href="{% url 'ad_page' ad_id=ad.id %}">{{ ad.header }}</a>
+                    </div>
+                </div>
+            {%endfor%}
+        </div>
+    </div>
+{% endblock %}

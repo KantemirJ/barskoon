@@ -1,0 +1,71 @@
+{% load staticfiles %}
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href="{%static 'main.css'%}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+{% endblock %}
+<body>
+    <div class="intro">
+        <div class="video">
+            <video class="video_media" src="{%static 'video/video.mp4'%}" autoplay muted loop></video>
+        </div>
+    </div>
+    <div>
+        <div class="container mt-5 mb-5">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <h4>Акыркы Кабарлар</h4>
+                    <ul class="timeline">
+                        {% for ad in ads %}
+                        <li id="header_new">
+                            <a class="header_new" href="{% url 'ad_page' ad_id=ad.id %}">{{ ad.header }}</a>
+                            <a href="#" class="float-right">{{ad.date}}</a>
+                            <p>{{ ad.text | truncatewords:50 }}</p>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navigation-wrap">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<nav class="navbar navbar-expand-md navbar-light">
+						<a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'img/barskoon.svg' %}" alt=""></a>
+						<div class="collapse navbar-collapse" id="navbarSupportedContent">
+							<ul class="navbar-nav ml-auto py-4 py-md-0">
+								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+									<a class="nav-link" href="{% url 'history_page' %}">Шаардын таарыхы</a>
+								</li>
+								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+									<a class="nav-link" href="{% url 'news_page' %}">Кабарлар</a>
+								</li>
+                                <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+									<a class="nav-link" href="{% url 'employee_page' %}">Кызматкерлер</a>
+								</li>
+								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+									<a class="nav-link" href="{% url 'login' %}">Кирүү</a>
+								</li>
+{#                                <form method="POST" action="/search/" id="content">#}
+{#                                    {%csrf_token %}#}
+{#                                    <input autocomplete="off" type="text" name="input" class="input" id="search-input" placeholder="Изде...">#}
+{#                                </form>#}
+							</ul>
+						</div>
+					</nav>
+				</div>
+			</div>
+		</div>
+    </div>
+    <script>
+        const input = document.getElementById("search-input");
+        const searchBtn = document.getElementById("search-btn");
+        const expand = () => {
+          searchBtn.classList.toggle("close");
+          input.classList.toggle("square");
+        };
+        searchBtn.addEventListener("click", expand);
+    </script>
+</body>>

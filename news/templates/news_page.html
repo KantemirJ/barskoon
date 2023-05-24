@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{%block style%}
+    <link rel="stylesheet" href="{% static 'news.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="header_emp">
+        <h5>Кабарлар</h5>
+    </div>
+<div class="news-class">
+    <section class="grid">
+        {% for ad in ads %}
+            <article class="grid-item">
+                <div class="image">
+                    <img src={{ ad.picture_url }}/>
+                </div>
+                <div class="info">
+                    <h2>{{ ad.header }}</h2>
+                    <div class="info-text">
+                        <p>{{ ad.text | truncatewords:25 }}</p>
+                    </div>
+                    <div class="button-wrap">
+                        <a class="atuin-btn" href={% url 'ad_page' ad_id=ad.id %}>Дагы маалымат</a>
+                    </div>
+                </div>
+            </article>
+        {% endfor %}
+    </section>
+</div>
+{% endblock %}
